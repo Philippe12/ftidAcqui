@@ -6,8 +6,15 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2675D2C817DDE89500C766CB /* ftdiAcqui.c in Sources */ = {isa = PBXBuildFile; fileRef = 2675D2C717DDE89500C766CB /* ftdiAcqui.c */; };
+		2675D2CA17DDF4BA00C766CB /* ftdiAcqui.h in Headers */ = {isa = PBXBuildFile; fileRef = 2675D2C917DDF4BA00C766CB /* ftdiAcqui.h */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2675D2BD17DDE7C900C766CB /* libftidAcqui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libftidAcqui.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2675D2C717DDE89500C766CB /* ftdiAcqui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ftdiAcqui.c; sourceTree = "<group>"; };
+		2675D2C917DDF4BA00C766CB /* ftdiAcqui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftdiAcqui.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +31,8 @@
 		2675D2B417DDE7C900C766CB = {
 			isa = PBXGroup;
 			children = (
+				2675D2C917DDF4BA00C766CB /* ftdiAcqui.h */,
+				2675D2C417DDE7D200C766CB /* Source */,
 				2675D2BE17DDE7C900C766CB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -36,6 +45,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2675D2C417DDE7D200C766CB /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2675D2C717DDE89500C766CB /* ftdiAcqui.c */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -43,6 +60,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2675D2CA17DDF4BA00C766CB /* ftdiAcqui.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +115,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2675D2C817DDE89500C766CB /* ftdiAcqui.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +185,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../D2XX/bin/static64\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -174,6 +197,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../D2XX/bin/static64\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
