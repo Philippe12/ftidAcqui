@@ -9,7 +9,7 @@
 #ifndef ftidAcqui_ftdiAcqui_h
 #define ftidAcqui_ftdiAcqui_h
 
-int ftdiAcqui( void );
+int ftdiAcqui( char* file );
 int ftdiConnect( void );
 void ftdiClose( void );
 double ftdiGetValue( int id, int voie );

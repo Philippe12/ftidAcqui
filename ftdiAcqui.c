@@ -1,4 +1,4 @@
-//
+    //
 //  ftdiAcqui.c
 //  ftidAcqui
 //
@@ -9,6 +9,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include "../D2XX/Samples/ftd2xx.h"
 
 #define BUFF_SIZE 20000
@@ -120,7 +124,7 @@ int ftdiConnect( void )
     return 1;
 }
 
-int ftdiAcqui( void )
+int ftdiAcqui( char* file )
 {
     unsigned char Buffer[BUFF_SIZE*10];
 	unsigned int dwToRead = BUFF_SIZE*10;
@@ -129,6 +133,13 @@ int ftdiAcqui( void )
     
     memset(Buffer, 0, dwToRead);
     FT_Read(hCom, Buffer, dwToRead, &dwRead);
+    
+    if( file )
+    {
+        int fid = open(file, O_RDWR | O_APPEND | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO);
+        write(fid, Buffer, dwRead);
+        close(fid);
+    }
 		
     Position = 0;
     CountValue = 0;
